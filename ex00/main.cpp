@@ -6,7 +6,7 @@
 /*   By: rlobun <rlobun@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/22 16:10:26 by rlobun            #+#    #+#             */
-/*   Updated: 2026/04/22 16:23:12 by rlobun           ###   ########.fr       */
+/*   Updated: 2026/04/22 16:26:07 by rlobun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,11 @@ int main()
 	delete meta;
 	delete dog;
 	delete cat;
+	std::cout << std::endl;
+	const WrongAnimal* wrongMeta = new WrongAnimal();
+	const WrongCat* wrongCat = new WrongCat();
+	wrongMeta->makeSound();
+	wrongCat->makeSound();
+	delete wrongMeta;
+	delete wrongCat;
 return 0; }
