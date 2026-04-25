@@ -6,7 +6,7 @@
 /*   By: rlobun <rlobun@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/22 16:10:26 by rlobun            #+#    #+#             */
-/*   Updated: 2026/04/25 20:09:48 by rlobun           ###   ########.fr       */
+/*   Updated: 2026/04/26 01:41:44 by rlobun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 int main() 
 {
 	std::cout << std::endl << std::endl;
-	std::cout << RED_BG << " CONSTRUCTING " RESET_BG << std::endl;
+	std::cout << RED_BG << " CONSTRUCTING A N I M A L S " RESET_BG << std::endl;
 	std ::cout << std::endl;
 
 	const Animal	*meta[10];
@@ -35,7 +35,7 @@ int main()
 	for (int i = 0; i < 10; i++)
 	{
 		std::cout << std::endl;
-		std::cout << "Animal _type: " << meta[i]->getType() << std::endl;
+		std::cout << "Animal type: " << meta[i]->getType() << std::endl;
 		meta[i]->makeSound();
 		std::cout << std::endl;
 	}
@@ -49,24 +49,24 @@ int main()
 	std::cout << std::endl << std::endl;
 	std::cout << RED_BG << "#### D E E P   C O P Y   T E S T ####" << RESET_BG << std::endl;
 	std::cout << std::endl;
-
-	Dog dog;
-
+	std::cout << "------  Dog creation ------" << std::endl;
+ 	Dog dog;
+	std::cout << "------  Dog2 creation through assignment ------" << std::endl;
 	Dog dog2 = dog;
-
+	std::cout << "------  Dog3 creation through copy constructor ------" << std::endl;
 	Dog dog3(dog);
-
+	std::cout << "------  Dog4 creation ------" << std::endl;
 	Dog	dog4;
 
 	dog.getBrain()->setIdea("I have to sniff it", 0);
 	dog.getBrain()->setIdea("I like to catch a ball ⚽", 1);
 	dog.getBrain()->setIdea("I want to eat 🥩", 2);
 	
-	
+	std::cout << "------  Dog4 to dog assignment ------" << std::endl;
 	dog4 = dog;
 
 	
-	std::cout << "Dog2 idea: " << dog2.getBrain()->getIdea(1) << std::endl;
+	// std::cout << "Dog2 idea: " << dog2.getBrain()->getIdea(1) << std::endl;
 
 	std::cout << "\033[34mTesting dog \033[0m" << std::endl;
 

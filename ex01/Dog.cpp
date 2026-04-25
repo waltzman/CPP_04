@@ -6,7 +6,7 @@
 /*   By: rlobun <rlobun@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/22 16:04:15 by rlobun            #+#    #+#             */
-/*   Updated: 2026/04/25 19:55:22 by rlobun           ###   ########.fr       */
+/*   Updated: 2026/04/26 01:43:12 by rlobun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ Dog::Dog(Dog const & other)
 
 Dog const & Dog::operator=(Dog const & other)
 {
-	std::cout << "🐶 Dog assignement constructor called 🐶" << std::endl;
+	std::cout << "🐶 Dog assignement operator called 🐶" << std::endl;
 	if (this == &other)
 		return *this;
 

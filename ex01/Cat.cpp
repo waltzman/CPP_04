@@ -6,7 +6,7 @@
 /*   By: rlobun <rlobun@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/22 16:01:22 by rlobun            #+#    #+#             */
-/*   Updated: 2026/04/25 19:55:57 by rlobun           ###   ########.fr       */
+/*   Updated: 2026/04/26 01:43:06 by rlobun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ Cat::Cat(Cat const & other)
 
 Cat const & Cat::operator=(Cat const & other)
 {
-	std::cout << "🐱 Cat assignement constructor called 🐱" << std::endl;
+	std::cout << "🐱 Cat assignement operator called 🐱" << std::endl;
 	if (this == &other)
 		return *this;
 	this->type = other.type;
