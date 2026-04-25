@@ -6,13 +6,13 @@
 /*   By: rlobun <rlobun@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/22 16:04:15 by rlobun            #+#    #+#             */
-/*   Updated: 2026/04/22 16:21:33 by rlobun           ###   ########.fr       */
+/*   Updated: 2026/04/25 17:15:15 by rlobun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 
-Dog::Dog(void)
+Dog::Dog(void) : type("Dog")
 {
 	std::cout << "Dog default constructor called" << std::endl;
 }
@@ -38,4 +38,8 @@ Dog::~Dog(void)
 void	Dog::makeSound(void) const
 {
 	std::cout << "Dog Woof Woof!!!" << std::endl;
+}
+std::string	Dog::getType(void) const
+{
+	return (this->type);
 }

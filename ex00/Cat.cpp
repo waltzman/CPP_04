@@ -6,13 +6,13 @@
 /*   By: rlobun <rlobun@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/22 16:01:22 by rlobun            #+#    #+#             */
-/*   Updated: 2026/04/22 16:20:57 by rlobun           ###   ########.fr       */
+/*   Updated: 2026/04/25 17:14:54 by rlobun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 
-Cat::Cat(void)
+Cat::Cat(void) : type("Cat")
 {
 	std::cout << "Cat default constructor called" << std::endl;
 }
@@ -35,7 +35,12 @@ Cat::~Cat(void)
 	std::cout << "Cat destructor called" << std::endl;
 }
 
-void	Cat::makeSound(void) const
+void	Cat::makeSound() const
 {
 	std::cout << "Cat Meow Meow" << std::endl;
+}
+
+std::string	Cat::getType(void) const
+{
+	return (this->type);
 }

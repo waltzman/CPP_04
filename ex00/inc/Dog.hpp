@@ -6,7 +6,7 @@
 /*   By: rlobun <rlobun@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/22 15:27:32 by rlobun            #+#    #+#             */
-/*   Updated: 2026/04/22 16:20:27 by rlobun           ###   ########.fr       */
+/*   Updated: 2026/04/25 17:08:31 by rlobun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,9 @@ class Dog: public Animal
 		~Dog(void);
 
 		void makeSound(void) const;
+		std::string getType(void) const;
+	private:
+		std::string type;	
 
 	
 };

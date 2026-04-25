@@ -6,7 +6,7 @@
 /*   By: rlobun <rlobun@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/22 16:05:24 by rlobun            #+#    #+#             */
-/*   Updated: 2026/04/22 16:20:57 by rlobun           ###   ########.fr       */
+/*   Updated: 2026/04/25 17:13:42 by rlobun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,9 @@ WrongAnimal::~WrongAnimal(void)
 void	WrongAnimal::makeSound(void) const
 {
 	std::cout << "WrongAnimal makeSound default member function called" << std::endl;
+}
+
+std::string	WrongAnimal::getType(void) const
+{
+	return (this->type);
 }

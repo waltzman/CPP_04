@@ -6,16 +6,17 @@
 /*   By: rlobun <rlobun@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/22 16:09:46 by rlobun            #+#    #+#             */
-/*   Updated: 2026/04/22 16:27:34 by rlobun           ###   ########.fr       */
+/*   Updated: 2026/04/25 17:13:56 by rlobun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "WrongCat.hpp"
 
-WrongCat::WrongCat(void)
+WrongCat::WrongCat(void) : type("WrongCat")
 {
 	std::cout << "WrongCat default constructor called" << std::endl;
 }
+
 
 WrongCat::WrongCat(WrongCat const & other)
 {
@@ -38,4 +39,8 @@ WrongCat::~WrongCat(void)
 void	WrongCat::makeSound(void) const
 {
 	std::cout << "WrongCat Meow Meow!!!" << std::endl;
+}
+std::string	WrongCat::getType(void) const
+{
+	return (this->type);
 }

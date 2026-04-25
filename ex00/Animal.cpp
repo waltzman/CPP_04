@@ -6,7 +6,7 @@
 /*   By: rlobun <rlobun@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/22 15:57:54 by rlobun            #+#    #+#             */
-/*   Updated: 2026/04/22 16:20:57 by rlobun           ###   ########.fr       */
+/*   Updated: 2026/04/25 16:58:27 by rlobun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,9 @@ Animal::~Animal(void)
 void	Animal::makeSound(void) const
 {
 	std::cout << "Animal makeSound default member function called" << std::endl;
+}
+
+std::string	Animal::getType(void) const
+{
+	return (type);
 }
