@@ -6,7 +6,7 @@
 /*   By: rlobun <rlobun@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/22 15:27:32 by rlobun            #+#    #+#             */
-/*   Updated: 2026/04/25 15:35:16 by rlobun           ###   ########.fr       */
+/*   Updated: 2026/04/25 17:35:05 by rlobun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@
 
 class Dog: public Animal
 {
-	private:
-		Brain* brain;
 	public:
 		Dog();
 		Dog(Dog const& other);
@@ -27,7 +25,10 @@ class Dog: public Animal
 		~Dog(void);
 
 		void makeSound(void) const;
-
+		std::string getType(void) const;
+	private:
+		std::string type;
+		Brain *brain;
 	
 };
 

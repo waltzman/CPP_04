@@ -6,7 +6,7 @@
 /*   By: rlobun <rlobun@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/24 13:37:50 by rlobun            #+#    #+#             */
-/*   Updated: 2026/04/25 15:33:00 by rlobun           ###   ########.fr       */
+/*   Updated: 2026/04/25 17:59:45 by rlobun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,18 @@
 
 Brain::Brain()
 {
-	std::cout << "Brain default constructor called";
+	std::cout << " 🧠 Brain default constructor called 🧠";
 }
 
 Brain::Brain(const Brain& other)
 {
-	std::cout << "Brain copy constructor called";
+	std::cout << "🧠 Brain copy constructor called 🧠";
 	*this = other;
 }
 
 Brain& Brain::operator=(const Brain& other)
 {
-	std::cout << "Brain assignment operator called" << std::endl;
+	std::cout << "🧠 Brain assignment operator called 🧠" << std::endl;
 	if (this == &other)
 		return *this;
 	for (int i = 0; i < 100; i++)
@@ -35,7 +35,7 @@ Brain& Brain::operator=(const Brain& other)
 }
 Brain::~Brain()
 {
-	std::cout << "Brain destructor called" << std::endl;
+	std::cout << "🧠 Brain destructor called 🧠" << std::endl;
 }
 
 void Brain::setIdea(std::string newIdea, int i) {
@@ -55,3 +55,4 @@ std::string Brain::getIdea(int i) {
 	}
 	return ideas[i];
 }
+

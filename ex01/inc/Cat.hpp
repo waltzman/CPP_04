@@ -6,7 +6,7 @@
 /*   By: rlobun <rlobun@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/22 15:27:32 by rlobun            #+#    #+#             */
-/*   Updated: 2026/04/25 15:26:58 by rlobun           ###   ########.fr       */
+/*   Updated: 2026/04/25 17:35:15 by rlobun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,18 @@
 
 class Cat : public Animal
 {
-	Brain* brain;
-	
 	public:
 		Cat();
 		Cat(Cat const& other);
-		Cat const& operator=(Cat const& other );
+		Cat const& operator=(Cat const& other);
 		~Cat(void);
 
 		void makeSound(void) const;
-
+		std::string getType(void) const;
 	
+	private:
+		std::string type;
+		Brain *brain;
 };
 
 #endif
