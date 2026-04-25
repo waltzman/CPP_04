@@ -6,7 +6,7 @@
 /*   By: rlobun <rlobun@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/24 13:37:50 by rlobun            #+#    #+#             */
-/*   Updated: 2026/04/25 18:33:02 by rlobun           ###   ########.fr       */
+/*   Updated: 2026/04/25 20:10:17 by rlobun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 Brain::Brain()
 {
-	std::cout << "🧠 Brain default constructor called 🧠";
+	std::cout << "🧠 Brain default constructor called 🧠" << std::endl;
 }
 
 Brain::Brain(const Brain& other)
@@ -63,20 +63,21 @@ std::string Brain::getIdea(int i) {
 }
 
 void Brain::display(int i) {
+	int end;
 	if (i > 100 || i < 0)
 	{
 		std::cout << "🚫 Index out of boundaries!!! 🚫" << std::endl;
+		end = 100;
 		return ;
 	}
-
-	if (i == 0)	
-		std::cout << "🧠 Displaying all ideas 🧠" << std::endl;
-		
-	for (int j = 0; j < 100; j++)
+	if (i == 0)
+		end = 100;
+	else
+		end = i;
+	for (int j = 0; j < end; j++)
 	{
-		if (ideas[j].empty())
-			continue ;
-		std::cout <<ideas[j] << std::endl;
+		std::cout << "wtf " << j << std::endl;
+		std::cout << ideas[j] << std::endl;
 	}	
 }
 

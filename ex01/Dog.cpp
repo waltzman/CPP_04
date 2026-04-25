@@ -6,7 +6,7 @@
 /*   By: rlobun <rlobun@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/22 16:04:15 by rlobun            #+#    #+#             */
-/*   Updated: 2026/04/25 18:34:06 by rlobun           ###   ########.fr       */
+/*   Updated: 2026/04/25 19:55:22 by rlobun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,19 @@
 Dog::Dog(void) : type("Dog")
 {
 	this->brain = new Brain();
-	for (int i = 0; i < 10; i++)
-	{	
-		std::ostringstream oss;
-    	oss << i;
-		std::string idea = "Idea:" + oss.str() + "Four paws, endless joy";
+	for (int i = 0; i < 100; i++)
+	{    // number to be converted to a string
+
+		std::string i_str;          // string which will contain the result
+
+		std::ostringstream convert;   // stream used for the conversion
+
+		convert << i;      // insert the textual representation of 'Number' in the characters in the stream
+
+		i_str = convert.str();
+
+		//std::string nums = "0123456789";
+		std::string idea = this->getType() + " idea " + i_str + ": I want to barn: woof woof!!!";
 		this->brain->setIdea(idea, i);
 	}
 	std::cout << "🐶 Dog default constructor called 🐶" << std::endl;
@@ -33,9 +41,14 @@ Dog::Dog(Dog const & other)
 
 Dog const & Dog::operator=(Dog const & other)
 {
-	this->type = other.type;
 	std::cout << "🐶 Dog assignement constructor called 🐶" << std::endl;
-	return (*this);
+	if (this == &other)
+		return *this;
+
+	this->type = other.type;
+	this->brain = new Brain();
+	*this->brain = *other.brain;
+	return *this;
 }
 
 Dog::~Dog(void)

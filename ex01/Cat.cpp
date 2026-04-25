@@ -6,20 +6,21 @@
 /*   By: rlobun <rlobun@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/22 16:01:22 by rlobun            #+#    #+#             */
-/*   Updated: 2026/04/25 18:33:55 by rlobun           ###   ########.fr       */
+/*   Updated: 2026/04/25 19:55:57 by rlobun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
+# include <iostream>
+# include <sstream>
 
 Cat::Cat(void) : type("Cat")
 {
 	this->brain = new Brain();
 	for (int i = 0; i < 10; i++)
 	{	
-    	std::ostringstream oss;
-    	oss << i;
-		std::string idea = "Idea:" + oss.str() + " I want to catch a mouse";
+		std::string nums = "0123456789";
+		std::string idea = this->getType() + "idea " + nums[i] + ": I want to catch a mouse";
 		this->brain->setIdea(idea, i);
 	}
 	std::cout << "🐱  Cat default constructor called  🐱" << std::endl;
@@ -33,9 +34,13 @@ Cat::Cat(Cat const & other)
 
 Cat const & Cat::operator=(Cat const & other)
 {
-	this->type = other.type;
 	std::cout << "🐱 Cat assignement constructor called 🐱" << std::endl;
-	return (*this);
+	if (this == &other)
+		return *this;
+	this->type = other.type;
+	this->brain = new Brain();
+	*this->brain = *other.brain;
+	return *this;
 }
 
 Cat::~Cat(void)
