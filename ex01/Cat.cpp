@@ -6,7 +6,7 @@
 /*   By: rlobun <rlobun@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/22 16:01:22 by rlobun            #+#    #+#             */
-/*   Updated: 2026/04/25 17:43:43 by rlobun           ###   ########.fr       */
+/*   Updated: 2026/04/25 18:33:55 by rlobun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,11 @@
 Cat::Cat(void) : type("Cat")
 {
 	this->brain = new Brain();
-	if (this->brain == NULL)
-	{
-		perror("Cat Brain allocation failed");
-		std::cerr << "Exiting the process now." << std::endl;
-		exit(1);
-	}
-	for (int i = 0; i < 3; i++)
-	{
-		std::string idea = std::to_string(i).append("I want to catch a mouse");
+	for (int i = 0; i < 10; i++)
+	{	
+    	std::ostringstream oss;
+    	oss << i;
+		std::string idea = "Idea:" + oss.str() + " I want to catch a mouse";
 		this->brain->setIdea(idea, i);
 	}
 	std::cout << "🐱  Cat default constructor called  🐱" << std::endl;
@@ -44,6 +40,7 @@ Cat const & Cat::operator=(Cat const & other)
 
 Cat::~Cat(void)
 {
+	delete this->brain;
 	std::cout << "🐱 Cat destructor called 🐱" << std::endl;
 }
 
@@ -55,4 +52,9 @@ void	Cat::makeSound() const
 std::string	Cat::getType(void) const
 {
 	return (this->type);
+}
+
+Brain* Cat::getBrain(void) const
+{
+	return (this->brain);
 }

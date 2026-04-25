@@ -6,7 +6,7 @@
 /*   By: rlobun <rlobun@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/22 14:00:25 by rlobun            #+#    #+#             */
-/*   Updated: 2026/04/25 16:57:32 by rlobun           ###   ########.fr       */
+/*   Updated: 2026/04/25 18:31:15 by rlobun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define ANIMAL_HPP
 
 #include <iostream>
+
 
 class Animal 
 {

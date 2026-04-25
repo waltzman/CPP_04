@@ -6,7 +6,7 @@
 /*   By: rlobun <rlobun@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/22 16:04:15 by rlobun            #+#    #+#             */
-/*   Updated: 2026/04/25 17:58:52 by rlobun           ###   ########.fr       */
+/*   Updated: 2026/04/25 18:34:06 by rlobun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,11 @@
 Dog::Dog(void) : type("Dog")
 {
 	this->brain = new Brain();
-	if (this->brain == NULL)
-	{
-		perror("Dog Brain allocation failed");
-		std::cerr << "Exiting the process now." << std::endl;
-		exit(1);
-	}
-	for (int i = 0; i < 3; i++)
-	{
-		std::string idea = std::to_string(i).append("I want to catch a mouse");
+	for (int i = 0; i < 10; i++)
+	{	
+		std::ostringstream oss;
+    	oss << i;
+		std::string idea = "Idea:" + oss.str() + "Four paws, endless joy";
 		this->brain->setIdea(idea, i);
 	}
 	std::cout << "🐶 Dog default constructor called 🐶" << std::endl;
@@ -44,6 +40,7 @@ Dog const & Dog::operator=(Dog const & other)
 
 Dog::~Dog(void)
 {
+	delete this->brain;
 	std::cout << "🐶 Dog destructor called 🐶" << std::endl;
 }
 
@@ -54,4 +51,9 @@ void	Dog::makeSound(void) const
 std::string	Dog::getType(void) const
 {
 	return (this->type);
+}
+
+Brain* Dog::getBrain(void) const
+{
+	return (this->brain);
 }

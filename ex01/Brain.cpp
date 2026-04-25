@@ -6,7 +6,7 @@
 /*   By: rlobun <rlobun@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/24 13:37:50 by rlobun            #+#    #+#             */
-/*   Updated: 2026/04/25 17:59:45 by rlobun           ###   ########.fr       */
+/*   Updated: 2026/04/25 18:33:02 by rlobun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 
 Brain::Brain()
 {
-	std::cout << " 🧠 Brain default constructor called 🧠";
+	std::cout << "🧠 Brain default constructor called 🧠";
 }
 
 Brain::Brain(const Brain& other)
 {
-	std::cout << "🧠 Brain copy constructor called 🧠";
+	std::cout << "🧠 Brain copy constructor called 🧠" << std::endl;
 	*this = other;
 }
 
@@ -41,7 +41,7 @@ Brain::~Brain()
 void Brain::setIdea(std::string newIdea, int i) {
 	if (i > 100 || i < 0)
 	{
-		std::cout << "Index out of boundaries" << std::endl;
+		std::cout << "🚫 Index out of boundaries!!! 🚫" << std::endl;
 		return ;
 	}
 	ideas[i] = newIdea;
@@ -50,9 +50,33 @@ void Brain::setIdea(std::string newIdea, int i) {
 std::string Brain::getIdea(int i) {
 	if (i > 100 || i < 0)
 	{
-		std::cout << "Index out of boundaries" << std::endl;
+		std::cout << "🚫 Index out of boundaries!!! 🚫" << std::endl;
+		return NULL;
+	}
+
+	if (ideas[i].empty())
+	{
+		std::cout << "🚫 No idea at this index!!! 🚫" << std::endl;
 		return NULL;
 	}
 	return ideas[i];
+}
+
+void Brain::display(int i) {
+	if (i > 100 || i < 0)
+	{
+		std::cout << "🚫 Index out of boundaries!!! 🚫" << std::endl;
+		return ;
+	}
+
+	if (i == 0)	
+		std::cout << "🧠 Displaying all ideas 🧠" << std::endl;
+		
+	for (int j = 0; j < 100; j++)
+	{
+		if (ideas[j].empty())
+			continue ;
+		std::cout <<ideas[j] << std::endl;
+	}	
 }
 
