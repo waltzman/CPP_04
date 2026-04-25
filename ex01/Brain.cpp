@@ -6,7 +6,7 @@
 /*   By: rlobun <rlobun@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/24 13:37:50 by rlobun            #+#    #+#             */
-/*   Updated: 2026/04/24 16:24:32 by rlobun           ###   ########.fr       */
+/*   Updated: 2026/04/25 07:54:15 by rlobun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,11 @@ Brain::Brain(const Brain& other)
 Brain& Brain::operator=(const Brain& other)
 {
 	std::cout << "Brain assignment operator called" << std::endl;
-	if (*this == brain)
-		return this;
-	for (int i = 0; i < 100; i++)
-		this->ideas[i].assign(other.ideas[i]);
+	if (*this != brain)
+	{
+		for (int i = 0; i < 100; i++)
+			this->ideas[i].assign(other.ideas[i]);
+	}
 	return *this;
 }
 
