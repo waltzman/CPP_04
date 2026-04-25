@@ -6,7 +6,7 @@
 /*   By: rlobun <rlobun@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/22 15:27:32 by rlobun            #+#    #+#             */
-/*   Updated: 2026/04/22 16:20:27 by rlobun           ###   ########.fr       */
+/*   Updated: 2026/04/25 15:35:16 by rlobun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define DOG_H
 # include <iostream>
 # include "Animal.hpp"
+# include "Brain.hpp"
 
 class Dog: public Animal
 {
