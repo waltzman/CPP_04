@@ -6,7 +6,7 @@
 /*   By: rlobun <rlobun@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/22 16:10:26 by rlobun            #+#    #+#             */
-/*   Updated: 2026/04/25 17:51:01 by rlobun           ###   ########.fr       */
+/*   Updated: 2026/04/26 16:42:43 by rlobun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,10 @@
 int main() 
 {
 	const Animal* meta = new Animal(); 
-	const Animal* dog = new Dog();
-	const Animal* cat = new Cat();
+	const Dog* dog = new Dog();
+	const Cat* cat = new Cat();
 	std::cout << "Cat type: " << cat->getType() << std::endl;
+	std::cout << "Dog type: " << dog->getType() << std::endl;
     meta->makeSound();
     cat->makeSound();
     dog->makeSound();
@@ -32,5 +33,6 @@ int main()
 	wrongMeta->makeSound();
 	wrongCat->makeSound();
 	delete wrongMeta;
+	
 	delete wrongCat;
 return 0; }

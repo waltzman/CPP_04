@@ -6,7 +6,7 @@
 /*   By: rlobun <rlobun@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/22 15:27:32 by rlobun            #+#    #+#             */
-/*   Updated: 2026/04/25 17:11:15 by rlobun           ###   ########.fr       */
+/*   Updated: 2026/04/26 16:50:30 by rlobun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class Cat : public Animal
 		Cat();
 		Cat(Cat const& other);
 		Cat const& operator=(Cat const& other );
-		~Cat(void);
+		virtual ~Cat(void);
 
 		void makeSound(void) const;
 		std::string getType(void) const;

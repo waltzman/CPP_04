@@ -6,7 +6,7 @@
 /*   By: rlobun <rlobun@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/22 14:00:25 by rlobun            #+#    #+#             */
-/*   Updated: 2026/04/25 17:03:33 by rlobun           ###   ########.fr       */
+/*   Updated: 2026/04/26 16:44:47 by rlobun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class	WrongAnimal
 		WrongAnimal const & operator=(WrongAnimal const & other);
 		virtual ~WrongAnimal(void);
 
-		virtual void makeSound(void) const;
+		void makeSound(void) const;
 		std::string getType(void) const;
 	protected:
 			std::string		type;
