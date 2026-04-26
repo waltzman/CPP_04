@@ -6,7 +6,7 @@
 /*   By: rlobun <rlobun@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/22 16:10:26 by rlobun            #+#    #+#             */
-/*   Updated: 2026/04/26 01:41:44 by rlobun           ###   ########.fr       */
+/*   Updated: 2026/04/26 01:57:21 by rlobun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,12 +80,12 @@ int main()
 	std::cout << std::endl;
 	std::cout << "\033[34mTesting dog 3\033[0m" << std::endl;
 	std::cout << "The " << dog3.getType() << " dog3 has the following ideas: " << std::endl;
-	dog2.getBrain()->display(5);
+	dog3.getBrain()->display(5);
 
 	std::cout << std::endl;
 	std::cout << "\033[34mTesting dog 4\033[0m" << std::endl;
 	std::cout << "The " << dog4.getType() << " dog4 has the following ideas: " << std::endl;
-	dog2.getBrain()->display(5);
+	dog4.getBrain()->display(5);
 
 
 }
