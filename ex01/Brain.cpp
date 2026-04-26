@@ -6,7 +6,7 @@
 /*   By: rlobun <rlobun@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/24 13:37:50 by rlobun            #+#    #+#             */
-/*   Updated: 2026/04/26 02:00:02 by rlobun           ###   ########.fr       */
+/*   Updated: 2026/04/26 16:24:57 by rlobun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,6 @@ void Brain::display(int i) {
 		end = i;
 	for (int j = 0; j < end; j++)
 	{
-		std::cout << "wtf " << j << std::endl;
 		std::cout << ideas[j] << std::endl;
 	}	
 }

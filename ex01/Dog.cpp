@@ -6,7 +6,7 @@
 /*   By: rlobun <rlobun@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/22 16:04:15 by rlobun            #+#    #+#             */
-/*   Updated: 2026/04/26 01:43:12 by rlobun           ###   ########.fr       */
+/*   Updated: 2026/04/26 16:21:37 by rlobun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,11 @@ Dog::Dog(void) : type("Dog")
 {
 	this->brain = new Brain();
 	for (int i = 0; i < 100; i++)
-	{    // number to be converted to a string
-
-		std::string i_str;          // string which will contain the result
-
-		std::ostringstream convert;   // stream used for the conversion
-
-		convert << i;      // insert the textual representation of 'Number' in the characters in the stream
-
+	{
+		std::string i_str;
+		std::ostringstream convert;
+		convert << i;
 		i_str = convert.str();
-
-		//std::string nums = "0123456789";
 		std::string idea = this->getType() + " idea " + i_str + ": I want to barn: woof woof!!!";
 		this->brain->setIdea(idea, i);
 	}

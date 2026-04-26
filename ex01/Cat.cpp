@@ -6,7 +6,7 @@
 /*   By: rlobun <rlobun@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/22 16:01:22 by rlobun            #+#    #+#             */
-/*   Updated: 2026/04/26 01:43:06 by rlobun           ###   ########.fr       */
+/*   Updated: 2026/04/26 16:21:03 by rlobun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,13 @@
 Cat::Cat(void) : type("Cat")
 {
 	this->brain = new Brain();
-	for (int i = 0; i < 10; i++)
-	{	
-		std::string nums = "0123456789";
-		std::string idea = this->getType() + "idea " + nums[i] + ": I want to catch a mouse";
+	for (int i = 0; i < 100; i++)
+	{    
+		std::string i_str;          
+		std::ostringstream convert;   
+		convert << i;     
+		i_str = convert.str();
+		std::string idea = this->getType() + " idea " + i_str + ": I want to catch a mouse";
 		this->brain->setIdea(idea, i);
 	}
 	std::cout << "🐱  Cat default constructor called  🐱" << std::endl;
