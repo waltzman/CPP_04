@@ -6,7 +6,7 @@
 /*   By: rlobun <rlobun@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/22 16:10:26 by rlobun            #+#    #+#             */
-/*   Updated: 2026/04/26 16:23:35 by rlobun           ###   ########.fr       */
+/*   Updated: 2026/04/26 16:34:10 by rlobun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 # define RESET_BG "\033[0m"
 int main() 
 {
+	// With this line the code does not compile:
+	// AAnimal* animal = new AAnimal();
 	std::cout << std::endl << std::endl;
 	std::cout << RED_BG << " CONSTRUCTING A N I M A L S " RESET_BG << std::endl;
 	std ::cout << std::endl;

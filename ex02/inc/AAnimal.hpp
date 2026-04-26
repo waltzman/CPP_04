@@ -31,7 +31,7 @@ class AAnimal
 		virtual ~AAnimal();
 
 		virtual void makeSound (void) const = 0;
-		virtual std::string getType(void) const = 0;
+		std::string getType(void) const;
 };
 
 #endif
