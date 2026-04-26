@@ -6,7 +6,7 @@
 /*   By: rlobun <rlobun@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/22 15:27:32 by rlobun            #+#    #+#             */
-/*   Updated: 2026/04/26 16:18:30 by rlobun           ###   ########.fr       */
+/*   Updated: 2026/04/26 16:49:42 by rlobun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class Dog: public AAnimal
 		Dog();
 		Dog(Dog const& other);
 		Dog const& operator=(Dog const& other);
-		~Dog(void);
+		virtual ~Dog(void);
 
 		void makeSound(void) const;
 		std::string getType(void) const;
