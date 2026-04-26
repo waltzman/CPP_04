@@ -4,7 +4,7 @@ INC_DIR = ./inc
 INC_FLAGS = -I$(INC_DIR)
 TARGET = animals
 SRCS = 	main.cpp\
-		Animal.cpp\
+		AAnimal.cpp\
 		Cat.cpp\
 		Dog.cpp\
 		Brain.cpp\
