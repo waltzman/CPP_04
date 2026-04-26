@@ -6,7 +6,7 @@
 /*   By: rlobun <rlobun@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/22 16:04:15 by rlobun            #+#    #+#             */
-/*   Updated: 2026/04/26 16:21:37 by rlobun           ###   ########.fr       */
+/*   Updated: 2026/04/26 18:10:52 by rlobun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ Dog const & Dog::operator=(Dog const & other)
 	if (this == &other)
 		return *this;
 
-	this->type = other.type;
-	this->brain = new Brain();
+	this->type = other.getType();
+	this->brain = new Brain(*other.getBrain());
 	*this->brain = *other.brain;
 	return *this;
 }
