@@ -6,7 +6,7 @@
 /*   By: rlobun <rlobun@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/24 11:21:00 by rlobun            #+#    #+#             */
-/*   Updated: 2026/04/25 18:08:50 by rlobun           ###   ########.fr       */
+/*   Updated: 2026/04/26 16:57:36 by rlobun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class Brain
 		Brain();
 		Brain(const Brain& other);
 		Brain& operator=(const Brain& other);
-		~Brain();
+		virtual ~Brain();
 
 		void setIdea(std::string idea, int i);
 		std::string getIdea(int i);

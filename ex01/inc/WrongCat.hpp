@@ -6,7 +6,7 @@
 /*   By: rlobun <rlobun@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/22 15:27:32 by rlobun            #+#    #+#             */
-/*   Updated: 2026/04/26 02:15:57 by rlobun           ###   ########.fr       */
+/*   Updated: 2026/04/26 16:56:54 by rlobun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class	WrongCat : public WrongAnimal
 		WrongCat(void);
 		WrongCat(WrongCat const & other);
 		WrongCat const & operator=(WrongCat const & other);
-		~WrongCat(void);
+		virtual ~WrongCat(void);
 
 		void	makeSound(void) const;
 		std::string getType(void) const;
