@@ -1,0 +1,36 @@
+CPP = c++
+CPP_FLAGS = -Wall -Wextra -Werror -std=c++98
+INC_DIR = ./inc
+INC_FLAGS = -I$(INC_DIR)
+TARGET = characters
+SRCS = 	main.cpp\
+		AMateria.cpp\
+		Character.cpp\
+		Cure.cpp\
+		Ice.cpp\
+		MateriaSource.cpp
+
+OBJS = $(SRCS:.cpp=.o)
+
+all: $(TARGET)
+
+$(TARGET): $(OBJS)
+	@$(CPP) $(CPP_FLAGS) $(OBJS) -o $(TARGET)
+
+%.o: %.cpp
+	@$(CPP)  $(INC_FLAGS) $(CPP_FLAGS) -c $< -o $@
+clean:
+	@rm -rf $(OBJS)
+
+fclean: clean
+	@rm -rf $(TARGET)
+
+re: fclean all
+
+checkleaks: all
+	valgrind --leak-check=full \
+		--show-leak-kinds=all \
+		--track-origins=yes \
+		--verbose ./$(TARGET)
+
+.PHONY: all show clean fclean re
