@@ -6,7 +6,7 @@
 /*   By: rlobun <rlobun@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/09 13:16:48 by rlobun            #+#    #+#             */
-/*   Updated: 2026/07/09 13:30:05 by rlobun           ###   ########.fr       */
+/*   Updated: 2026/07/09 14:10:20 by rlobun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class AMateria
 	// Constructors
 
 		AMateria();
-		AMateria(std::string const type_name);
+		AMateria(const std::string& type_name);
 		AMateria(const AMateria& other);
 	
 	// Deconstructor
@@ -36,7 +36,7 @@ class AMateria
 	
 	// Operators 
 	
-		AMateria& opertator=(const AMateria &other);
+		AMateria& opertator=(const AMateria& other);
 	
 	// Getters
 
@@ -44,7 +44,7 @@ class AMateria
 	
 	// Setters
 
-		void	setType(const std::string& type);
+		void	setType(const std::string& new_type);
 	
 	// Utils
 		void	toString();
