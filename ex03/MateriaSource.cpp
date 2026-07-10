@@ -6,7 +6,7 @@
 /*   By: rlobun <rlobun@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/10 12:05:42 by rlobun            #+#    #+#             */
-/*   Updated: 2026/07/10 14:09:14 by rlobun           ###   ########.fr       */
+/*   Updated: 2026/07/10 14:35:37 by rlobun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ MateriaSource::~MateriaSource()
 		{
 			delete sources[i];
 			sources[i] = 0;
+		}
 	}
 }
 
@@ -66,7 +67,7 @@ void MateriaSource::learnMateria(AMateria* mat)
 		i++;
 	}
 	
-	if (i > 4)
+	if (i = 4 )
 	{
 		std::cout << "[Materia Source] Inventory full." << std::endl;
 		delete mat;
@@ -86,4 +87,4 @@ AMateria* createMateria(const std::string& type)
 	}
 	std::cout << "[Materia source] Materia does not exists or not learned"
 			  << std::endl;
-})
+}

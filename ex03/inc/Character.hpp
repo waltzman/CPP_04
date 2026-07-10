@@ -6,7 +6,7 @@
 /*   By: rlobun <rlobun@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/10 11:19:07 by rlobun            #+#    #+#             */
-/*   Updated: 2026/07/10 11:30:22 by rlobun           ###   ########.fr       */
+/*   Updated: 2026/07/10 14:50:16 by rlobun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,13 @@ class Character : public ICharacter
 		AMateria *inventory[4];
 		AMateria **dropped;
 		int sizeDropped;
+		int numMaterias;
 
 	public:
 		Charcater();
 		Character(const std::string& newName);
 		Character(consr Character & other);
-		~Character*();
+		~Character();
 
 		Character& operator=(const Character& other);
 
