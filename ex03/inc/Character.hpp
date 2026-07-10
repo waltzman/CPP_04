@@ -6,7 +6,7 @@
 /*   By: rlobun <rlobun@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/10 11:19:07 by rlobun            #+#    #+#             */
-/*   Updated: 2026/07/10 14:50:16 by rlobun           ###   ########.fr       */
+/*   Updated: 2026/07/10 18:14:08 by rlobun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ class Character : public ICharacter
 		int numMaterias;
 
 	public:
-		Charcater();
+		Character();
 		Character(const std::string& newName);
-		Character(consr Character & other);
+		Character(const Character & other);
 		~Character();
 
 		Character& operator=(const Character& other);
@@ -39,7 +39,7 @@ class Character : public ICharacter
 		void toString();
 
 		void equip(AMateria* m);
-		void uneqip(int idx);
+		void unequip(int idx);
 		void use(int idx, ICharacter& target);
 
 };

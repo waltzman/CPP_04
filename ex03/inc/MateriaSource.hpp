@@ -6,7 +6,7 @@
 /*   By: rlobun <rlobun@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/10 11:09:43 by rlobun            #+#    #+#             */
-/*   Updated: 2026/07/10 11:18:14 by rlobun           ###   ########.fr       */
+/*   Updated: 2026/07/10 16:05:28 by rlobun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,6 @@ class MateriaSource : public IMateriaSource
 
 		void learnMateria(AMateria *);
 		AMateria* createMateria(const std::string& type);
-}
+};
 
 #endif
