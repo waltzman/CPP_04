@@ -6,7 +6,7 @@
 /*   By: rlobun <rlobun@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/09 16:34:36 by rlobun            #+#    #+#             */
-/*   Updated: 2026/07/10 11:58:17 by rlobun           ###   ########.fr       */
+/*   Updated: 2026/07/10 13:36:02 by rlobun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Cure::Cure()
 {
-	type = "Cure";
+	type = "cure";
 }
 
 Cure::Cure(const Cure& other)
