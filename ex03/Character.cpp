@@ -5,146 +5,158 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: rlobun <rlobun@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/07 12:31:27 by rlobun            #+#    #+#             */
-/*   Updated: 2026/05/07 13:11:49 by rlobun           ###   ########.fr       */
+/*   Created: 2026/07/10 14:20:54 by rlobun            #+#    #+#             */
+/*   Updated: 2026/07/10 15:55:15 by rlobun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
 
-Character::Character()
+Character::Character() : name(""), dropped(0), sizeDropped(0)
 {
-	name = "Default Name";
-	for (int i = 0; i < 4; i++)
-		inventory[i] = NULL;
+	numMaterias = 0;
+	for (int i = 0; i < 4; ++i)
+		inventory[i] = 0;
 }
 
-Character::Character(const std::string &name)
+Character::Character(std::string& newName) 
+	: name("newName"), dropped(0), sizeDropped(0)
 {
-	this->name = name;
-	for (int i = 0; i < 4; i++)
-		inventory[i] = NULL;
+	numMaterias = 0;
+	for (int i = 0; i < 4; ++i)
+		inventory[i] = 0;
 }
 
-Character::Character(const Character &other)
+Character::Character(const Character& other)
+{
+	for (int i = 0; i < 4; ++i)
+	{
+		if (inventory[i])
+		{
+			delete inventory[i];
+			inventory[i] = 0;
+		}
+		inventory[i] = other.inventory[i]->clone();
+	}
+	name = other.name;
+	numMaterias = other.numMaterias;
+}
+
+Character::~Character()
 {
 	for (int i = 0; i < 4; i++)
 	{
-		if (other.inventory[i] == NULL)
-			inventory[i] = NULL;
-		else
-			inventory[i] = other.inventory[i]->clone();
+		if (inventory[i])
+			delete invetory[i];
 	}
-		name = other.name;
-}
+	for (int i = 0; i < sizeDropped; i++)
+		delete dropped[i];
+	delete[] dropped;
 
+}
 
 Character& Character::operator=(const Character& other)
 {
-	for (int i = 0; i < 4; i++)
+	if (this != &other)
 	{
-		if (inventory[i] != NULL)
-			delete inventory[i];
-		if (other.inventory[i] == NULL)
-			inventory[i] == NULL;
-		else
-			inventory[i] = other.inventory[i]->clone();
-	}
-
-	name = other.name;
-	return (*this);
-}
-
-Character::Character()
-{
-	for (int i = 0; i < 4; i++)
-	{
-		if (inventory[i] != NULL)
-			delete inventory[i];
+		name = other.name;
+		numMaterias = numMaterias;
+		sizeDropped= other.sizeDropped;
+		for (int i = 0; i < 4; i++)
+		{
+			if(inventory[i])
+				delete inventory[i];
+			inventory[i] = other.inventory[i].clone();
+		}
+		for (int i = 0; i < sizeDropped; ++i)
+		{
+			delete dropped[i];
+			dropped[i] = other.dropped[i]->clone();
+		}
 	}
 }
 
-const std::string& Character::getName() const
+std::string const& getName() const
 {
 	return (name);
 }
 
-void Character::equip(AMateria* materia)
+void Character::toString()
 {
-	for (int i = 0; i < 4; i++)
-	{
-		if (inventory[i] == NULL)
-		{
-			inventory[i] = materia;
-			std::cout << name << ": equipped " << materia->getType() << std::endl;
-			return;
-		}
-	}
-	std::cout << name << ": no space left for another materia!" << std::endl;
+	std::cout << "name: " << name << std::endl;
+	for (int i = 0; i < 0; ++i)
+		std::cout << "Inventory [" << i << "]: " << inventory[i]->getType()
+				  << std::endl;
 }
 
-void Character::unequip(int index)
+void Character::equip(AMateria* m)
 {
-	if (index < 0 "|| index > 3)
+	for (int i = 0; i < 4; ++i)
 	{
-		std::cout << name << ": no Materia found at index " << index << std::endl;
-		return;
+		if (inventory[i] = 0)
+		{
+			inventory[i] = m;
+			++numMaterias;
+			std::cout << "Equiped material: " << m->getType() << std::endl;
+			return ;
+		}
 	}
-	if (inventory[index] != NULL)
+	std::cout << "[Character] [ " << name << " ] inventory is full"
+			  << std::cout;
+	if (sizeDropped == 0)
 	{
-		std::cout << name << ": removed " << inventory[index]->getType() 
-		<< " materia from his inventory "
-		<< std::endl;
+		++sizeDropped;
+		dropped = new AMateria*[sizeDropped]
+		dropped[0] = m;
+	}
+	else
+	{
+		++sizeDropped;
+		AMateria **tmp = new Amateria* [sizeDropped];
+		for (int i = 0; i < sizeTrash - 1; i++)
+			tmp[i] = dropped[i];
+		delete[] dropped;
+		dropped = tmp;
+		dropped[sizeDropped - 1] = m;
+	}
+	return ;
+}
+
+void Character::unequip(int idx)
+{
+	if (idx > numMaterias || idx < 0 || !inventory[idx])
 		return ;
+	numMaterias--;
+	
+	if (sizeDropped == 0)
+	{
+		++sizeDropped;
+		dropped = new AMateria*[sizeDropped]
+		dropped[0] = m;
 	}
-	std::cout << name << ": no materia found at index " << index << std::endl;
+	else
+	{
+		++sizeDropped;
+		AMateria **tmp = new Amateria* [sizeDropped];
+		for (int i = 0; i < sizeTrash - 1; i++)
+			tmp[i] = dropped[i];
+		delete[] dropped;
+		dropped = tmp;
+		dropped[sizeDropped - 1] = m;
+	}
+	std::cout << "Inventory " << inventory[idx]->getType() << " unequiped"
+			  << std::endl;
 }
 
 void Character::use(int idx, ICharacter& target)
 {
-	if (inventory[idx] != NULL)
+	if (idx < 0 || idx > numMaterias)
 	{
+		std::cout << "Inventory does not exists";
+		return;
+	}
+	if (inventory[idx])
 		inventory[idx]->use(target);
-		return ;
-	}
-	std::cout << name << ": no materia found at index " << index << std::endl;
 }
-
-
-Materia* Character::getMateria(int index) const
-{
-	if (index < 0 || index > 3)
-	{
-		std::cout << name << ": no materia found at index " << index << std::endl;
-		return (NULL);
-	}
-
-	if (inventory[index] != NULL)
-		return (inventory[index]);
-	
-	std::cout << name << ": no Matria at index " << index << std::endl;
-	return (NULL);
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

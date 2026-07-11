@@ -1,71 +1,57 @@
-r* ************************************************************************** */
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   AMateria.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rlobun <rlobun@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/07 10:55:46 by rlobun            #+#    #+#             */
-/*   Updated: 2026/05/07 11:15:38 by rlobun           ###   ########.fr       */
+/*   Created: 2026/07/09 13:16:48 by rlobun            #+#    #+#             */
+/*   Updated: 2026/07/10 23:35:54 by rlobun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef AMATERIA_HPP
-# define AMATERIA_HPP
+#ifndef AMATERIA_H
+#define AMATERIA_H
+
 
 #include <iostream>
+#include <string>
 #include "ICharacter.hpp"
-
-class ICharacter;
 
 class AMateria
 {
+	protected:
+		std::string type;
+
 	public:
+
+	// Constructors
+
 		AMateria();
-		AMateria(const std::string &type);
-		AMateria(const AMateria &other);
-		AMateria& operator=(const AMateria &other);
-        virtual ~AMateria();
+		AMateria(const std::string& type_name);
+		AMateria(const AMateria& other);
+	
+	// Deconstructor
 
-        const std::string& getType() const;
+		virtual ~AMateria();
+	
+	// Operators 
+	
+		AMateria& operator=(const AMateria& other);
+	
+	// Getters
 
-        virtual AMateria* clone() const = 0;
-        virtual void use(ICharacter &target);
+		const	std::string& getType() const;
+	
+	// Setters
 
-    protected:
-        std::string type;
+		void	setType(const std::string& new_type);
+	
+	// Utils
+		void	toString();
+
+		virtual AMateria* clone() const = 0;
+		virtual void use(ICharacter& target);
 };
 
 #endif
-~
-~
-~
-~
-~
-~
-~
-~
-~
-~
-~
-~
-~
-~
-~
-~
-~
-~
-AMateria.hpp                                                                                        27/39
--- INSERT --nst AMateria &src);
-		virtual ~AMateria();
-
-		const std::string& getType() const;
-
-		virtual AMateria* clone() const = 0;
-		virtual void use(ICharacter &target);
-	
-	protected:
-		std::string type;
-};
-
-#endifi

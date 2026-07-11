@@ -5,44 +5,61 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: rlobun <rlobun@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/07 11:16:13 by rlobun            #+#    #+#             */
-/*   Updated: 2026/05/07 11:25:40 by rlobun           ###   ########.fr       */
-/*                                                                            */
+/*   Created: 2026/07/09 13:40:39 by rlobun            #+#    #+#             */
+/*   Updated: 2026/07/09 13:40:39 by rlobun           ###   ########.fr       */                                                           */
 /* ************************************************************************** */
 
 #include "AMateria.hpp"
 
 AMateria::AMateria()
 {
+	type = "not defined";
 }
 
-AMateria::AMateria(const std::string &type)
+AMateria::AMateria(const std::string& type_name)
 {
-	this->type = type;
+	type = new_type;
 }
 
-AMateria::AMateria(const AMateria &other)
+AMateria::AMateria(const AMateria& other)
 {
-	type = other.type;
+	*this = other;
 }
 
-AMateria& AMateria::operator=(const AMateria &other)
+AMateria& AMateria::operator=(const AMateria& other)
 {
 	if (this != &other)
-		type =  other.type;
-	return (*this);
+	{
+		*this = other;
+		return (*this);
+	}
 }
 
 AMateria::~AMateria()
 {
+
 }
 
-const std::string& AMateria::getType() const
-{
+const std::string& AMateria::getType  const
+{	
 	return (type);
 }
 
-void AMateria::use(ICharacter &target)
+void AMateria::setType(const std::string& new_type)
 {
-	std::cout << "Default attack (no type) on " << target.getName() << std::endl;
+	type = new_type;
 }
+
+void AMateria.toString()
+{
+	std::cout << "type" << type << std::endl;
+}
+
+void AMateria::use(ICharacter& target)
+{
+	std::cout << " * uses materia on " <<target.getName() << " *" << std::endl;
+}
+
+
+
+

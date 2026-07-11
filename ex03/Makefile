@@ -9,7 +9,6 @@ SRCS = 	main.cpp\
 		Cure.cpp\
 		Ice.cpp\
 		MateriaSource.cpp
-
 OBJS = $(SRCS:.cpp=.o)
 
 all: $(TARGET)
