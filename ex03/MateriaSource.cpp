@@ -6,18 +6,18 @@
 /*   By: rlobun <rlobun@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/10 12:05:42 by rlobun            #+#    #+#             */
-/*   Updated: 2026/07/10 14:35:37 by rlobun           ###   ########.fr       */
+/*   Updated: 2026/07/11 16:19:03 by rlobun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MateriaSource.hpp"
+#include "AMateria.hpp"
 
 MateriaSource::MateriaSource()
 {
 	for (int i=0; i < 4; i++)
 		sources[i] = 0;
 }
-~:w
 
 MateriaSource::MateriaSource(const MateriaSource& other)
 {
@@ -37,9 +37,9 @@ MateriaSource& MateriaSource::operator=(const MateriaSource& other)
 				delete sources[i];
 
 			if (other.sources[i])
-				this.sou1rces[i] = ohter.sources[i]->clone();
+				this->sources[i] = other.sources[i]->clone();
 			else
-				this->sources = 0;
+				this->sources[i] = 0;
 		}
 	}
 	return (*this);
@@ -47,7 +47,7 @@ MateriaSource& MateriaSource::operator=(const MateriaSource& other)
 
 MateriaSource::~MateriaSource()
 {
-	for (int i=0; i < 4; i++)
+	for (int i = 0; i < 4; i++)
 	{
 		if (sources[i])
 		{
@@ -67,9 +67,9 @@ void MateriaSource::learnMateria(AMateria* mat)
 		i++;
 	}
 	
-	if (i = 4 )
+	if (i == 4 )
 	{
-		std::cout << "[Materia Source] Inventory full." << std::endl;
+		std::cout << "[Materia Source] Inventory full" << std::endl;
 		delete mat;
 		mat = 0;
 		return ;
@@ -78,13 +78,14 @@ void MateriaSource::learnMateria(AMateria* mat)
 	std::cout << "[Materia source] New materia learned" << std::endl; 
 }
 
-AMateria* createMateria(const std::string& type)
+AMateria* MateriaSource::createMateria(const std::string& type)
 {
 	for (int i = 0; i < 4; ++i)
 	{
-		if(sources[i] && sources[i]->getType==type)
+		if(sources[i] && sources[i]->getType() == type)
 			return (sources[i]->clone());
 	}
 	std::cout << "[Materia source] Materia does not exists or not learned"
 			  << std::endl;
+	return (0);
 }
