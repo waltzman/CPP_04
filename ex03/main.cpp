@@ -6,10 +6,11 @@
 /*   By: rlobun <rlobun@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/10 15:58:46 by rlobun            #+#    #+#             */
-/*   Updated: 2026/07/10 16:03:26 by rlobun           ###   ########.fr       */
+/*   Updated: 2026/07/10 23:34:29 by rlobun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <string>
 #include "AMateria.hpp"
 #include "ICharacter.hpp"
 #include "IMateriaSource.hpp"
@@ -28,6 +29,8 @@ int main()
 	ICharacter* me = new Character("me");
 
 	AMateria* tmp;
+
+	std::cout << "\n HERE ***********************************\n" << std::endl; 
 
 	tmp = src->createMateria("ice");
 	me->equip(tmp);

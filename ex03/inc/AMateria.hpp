@@ -6,7 +6,7 @@
 /*   By: rlobun <rlobun@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/09 13:16:48 by rlobun            #+#    #+#             */
-/*   Updated: 2026/07/10 18:13:07 by rlobun           ###   ########.fr       */
+/*   Updated: 2026/07/10 23:35:54 by rlobun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 
 #include <iostream>
+#include <string>
 #include "ICharacter.hpp"
 
 class AMateria

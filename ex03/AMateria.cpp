@@ -9,7 +9,7 @@
 /*   Updated: 2026/07/09 13:40:39 by rlobun           ###   ########.fr       */                                                           */
 /* ************************************************************************** */
 
-#include "AMAteria.hpp"
+#include "AMateria.hpp"
 
 AMateria::AMateria()
 {
