@@ -6,7 +6,7 @@
 /*   By: rlobun <rlobun@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/09 13:40:39 by rlobun            #+#    #+#             */
-/*   Updated: 2026/07/09 13:40:39 by rlobun           ###   ########.fr       */                                                           */
+/*   Updated: 2026/07/09 13:40:39 by rlobun           ###   ########.fr       */                                            
 /* ************************************************************************** */
 
 #include "AMateria.hpp"
@@ -18,7 +18,7 @@ AMateria::AMateria()
 
 AMateria::AMateria(const std::string& type_name)
 {
-	type = new_type;
+	type = type_name;
 }
 
 AMateria::AMateria(const AMateria& other)
@@ -29,10 +29,8 @@ AMateria::AMateria(const AMateria& other)
 AMateria& AMateria::operator=(const AMateria& other)
 {
 	if (this != &other)
-	{
 		*this = other;
-		return (*this);
-	}
+	return (*this);
 }
 
 AMateria::~AMateria()
@@ -40,7 +38,7 @@ AMateria::~AMateria()
 
 }
 
-const std::string& AMateria::getType  const
+const std::string& AMateria::getType() const
 {	
 	return (type);
 }
@@ -50,7 +48,7 @@ void AMateria::setType(const std::string& new_type)
 	type = new_type;
 }
 
-void AMateria.toString()
+void AMateria::toString()
 {
 	std::cout << "type" << type << std::endl;
 }

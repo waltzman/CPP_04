@@ -6,7 +6,7 @@
 /*   By: rlobun <rlobun@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/10 14:20:54 by rlobun            #+#    #+#             */
-/*   Updated: 2026/07/10 15:55:15 by rlobun           ###   ########.fr       */
+/*   Updated: 2026/07/11 09:52:37 by rlobun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ Character::Character() : name(""), dropped(0), sizeDropped(0)
 		inventory[i] = 0;
 }
 
-Character::Character(std::string& newName) 
-	: name("newName"), dropped(0), sizeDropped(0)
+Character::Character(const std::string& newName) 
+	: name(newName), dropped(0), sizeDropped(0)
 {
 	numMaterias = 0;
 	for (int i = 0; i < 4; ++i)
@@ -47,7 +47,7 @@ Character::~Character()
 	for (int i = 0; i < 4; i++)
 	{
 		if (inventory[i])
-			delete invetory[i];
+			delete inventory[i];
 	}
 	for (int i = 0; i < sizeDropped; i++)
 		delete dropped[i];
@@ -66,7 +66,7 @@ Character& Character::operator=(const Character& other)
 		{
 			if(inventory[i])
 				delete inventory[i];
-			inventory[i] = other.inventory[i].clone();
+			inventory[i] = other.inventory[i]->clone();
 		}
 		for (int i = 0; i < sizeDropped; ++i)
 		{
