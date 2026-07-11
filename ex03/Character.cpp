@@ -6,7 +6,7 @@
 /*   By: rlobun <rlobun@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/10 14:20:54 by rlobun            #+#    #+#             */
-/*   Updated: 2026/07/11 09:52:37 by rlobun           ###   ########.fr       */
+/*   Updated: 2026/07/11 11:23:34 by rlobun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ Character& Character::operator=(const Character& other)
 	if (this != &other)
 	{
 		name = other.name;
-		numMaterias = numMaterias;
+		numMaterias = other.numMaterias;
 		sizeDropped= other.sizeDropped;
 		for (int i = 0; i < 4; i++)
 		{
@@ -74,9 +74,10 @@ Character& Character::operator=(const Character& other)
 			dropped[i] = other.dropped[i]->clone();
 		}
 	}
+	return (*this);
 }
 
-std::string const& getName() const
+std::string const& Character::getName() const
 {
 	return (name);
 }
@@ -93,7 +94,7 @@ void Character::equip(AMateria* m)
 {
 	for (int i = 0; i < 4; ++i)
 	{
-		if (inventory[i] = 0)
+		if (inventory[i] == 0)
 		{
 			inventory[i] = m;
 			++numMaterias;
@@ -106,14 +107,14 @@ void Character::equip(AMateria* m)
 	if (sizeDropped == 0)
 	{
 		++sizeDropped;
-		dropped = new AMateria*[sizeDropped]
+		dropped = new AMateria*[sizeDropped];
 		dropped[0] = m;
 	}
 	else
 	{
 		++sizeDropped;
-		AMateria **tmp = new Amateria* [sizeDropped];
-		for (int i = 0; i < sizeTrash - 1; i++)
+		AMateria **tmp = new AMateria* [sizeDropped];
+		for (int i = 0; i < sizeDropped- 1; i++)
 			tmp[i] = dropped[i];
 		delete[] dropped;
 		dropped = tmp;
@@ -131,21 +132,22 @@ void Character::unequip(int idx)
 	if (sizeDropped == 0)
 	{
 		++sizeDropped;
-		dropped = new AMateria*[sizeDropped]
-		dropped[0] = m;
+		dropped = new AMateria*[sizeDropped];
+		dropped[0] = inventory[idx];
 	}
 	else
 	{
 		++sizeDropped;
-		AMateria **tmp = new Amateria* [sizeDropped];
-		for (int i = 0; i < sizeTrash - 1; i++)
+		AMateria **tmp = new AMateria* [sizeDropped];
+		for (int i = 0; i < sizeDropped - 1; i++)
 			tmp[i] = dropped[i];
 		delete[] dropped;
 		dropped = tmp;
-		dropped[sizeDropped - 1] = m;
+		dropped[sizeDropped - 1] = inventory[idx];
 	}
 	std::cout << "Inventory " << inventory[idx]->getType() << " unequiped"
 			  << std::endl;
+	inventory[idx] = 0;
 }
 
 void Character::use(int idx, ICharacter& target)

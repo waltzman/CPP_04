@@ -6,7 +6,7 @@
 /*   By: rlobun <rlobun@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/09 16:34:36 by rlobun            #+#    #+#             */
-/*   Updated: 2026/07/10 12:00:09 by rlobun           ###   ########.fr       */
+/*   Updated: 2026/07/11 11:28:30 by rlobun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ Ice::~Ice()
 Ice& Ice::operator=(const Ice& other)
 {
 	if (this != &other)
-		return (*this);
+		type = other.type;
+	return (*this);
 }
 
 Ice* Ice::clone() const
@@ -38,7 +39,7 @@ Ice* Ice::clone() const
 	return (new Ice());
 }
 
-void Ice::use(ICaracter& target)
+void Ice::use(ICharacter& target)
 {
 	std::cout 
 	<< "* shoots an ice bolt at " << target.getName() << " *" 

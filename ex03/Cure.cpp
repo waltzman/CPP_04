@@ -6,7 +6,7 @@
 /*   By: rlobun <rlobun@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/09 16:34:36 by rlobun            #+#    #+#             */
-/*   Updated: 2026/07/10 13:36:02 by rlobun           ###   ########.fr       */
+/*   Updated: 2026/07/11 11:28:05 by rlobun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ Cure::~Cure()
 Cure& Cure::operator=(const Cure& other)
 {
 	if (this != &other)
-		return (*this);
+		type = other.type;
+	return (*this);
 }
 
 Cure *Cure::clone() const
@@ -38,7 +39,7 @@ Cure *Cure::clone() const
 	return (new Cure());	
 }
 
-void Cure::use(ICharacte& target)
+void Cure::use(ICharacter& target)
 {
-	std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl
+	std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl;
 }
