@@ -6,7 +6,7 @@
 /*   By: rlobun <rlobun@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/10 14:20:54 by rlobun            #+#    #+#             */
-/*   Updated: 2026/07/11 11:23:34 by rlobun           ###   ########.fr       */
+/*   Updated: 2026/07/13 00:52:04 by rlobun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,29 +17,32 @@ Character::Character() : name(""), dropped(0), sizeDropped(0)
 	numMaterias = 0;
 	for (int i = 0; i < 4; ++i)
 		inventory[i] = 0;
+	std::cout << "[Materias] Number of materias at start " << numMaterias << std::endl;
 }
 
 Character::Character(const std::string& newName) 
 	: name(newName), dropped(0), sizeDropped(0)
-{
+{ 	
 	numMaterias = 0;
 	for (int i = 0; i < 4; ++i)
 		inventory[i] = 0;
+	std::cout << "[Character] "
+ 			  << newName
+			  << " Number of materias at start " << numMaterias << std::endl;
 }
 
 Character::Character(const Character& other)
 {
+	name = other.name;
 	for (int i = 0; i < 4; ++i)
 	{
-		if (inventory[i])
-		{
-			delete inventory[i];
-			inventory[i] = 0;
-		}
-		inventory[i] = other.inventory[i]->clone();
+		if (other.inventory[i])
+			inventory[i] = other.inventory[i]->clone();
+		
+		else
+			inventory[i] = 0; 
 	}
-	name = other.name;
-	numMaterias = other.numMaterias;
+
 }
 
 Character::~Character()
@@ -61,13 +64,18 @@ Character& Character::operator=(const Character& other)
 	{
 		name = other.name;
 		numMaterias = other.numMaterias;
-		sizeDropped= other.sizeDropped;
+		sizeDropped = other.sizeDropped;
 		for (int i = 0; i < 4; i++)
 		{
 			if(inventory[i])
 				delete inventory[i];
-			inventory[i] = other.inventory[i]->clone();
+			//std::cout << "\nHERE **************** \n" << std::endl;
+			if (other.inventory[i] == 0)
+				inventory[i] = 0;
+			else
+				inventory[i] = other.inventory[i]->clone();
 		}
+		
 		for (int i = 0; i < sizeDropped; ++i)
 		{
 			delete dropped[i];
@@ -84,10 +92,23 @@ std::string const& Character::getName() const
 
 void Character::toString()
 {
-	std::cout << "name: " << name << std::endl;
-	for (int i = 0; i < 0; ++i)
-		std::cout << "Inventory [" << i << "]: " << inventory[i]->getType()
-				  << std::endl;
+	std::cout << "P R I N T I N G character: " << name << std::endl;
+	for (int i = 0; i < 4; ++i)
+	{ 
+		if (inventory[i])
+		{
+			std::cout << "Inventory [" 
+					  << i 
+					  << "]: " 
+					  << inventory[i]->getType()
+					  << std::endl;
+		}
+		else
+			std::cout << "Inventory [" 
+					  << i 
+					  << "]: not equiped "
+					  << std::endl;
+	}
 }
 
 void Character::equip(AMateria* m)
@@ -98,12 +119,17 @@ void Character::equip(AMateria* m)
 		{
 			inventory[i] = m;
 			++numMaterias;
-			std::cout << "Equiped material: " << m->getType() << std::endl;
+			std::cout << "Equiped materia: " << m->getType() << std::endl;
+			std::cout << "[Character] ["
+			  << name
+			  << "] Number of equiped materias: " 
+			  << numMaterias 
+			  << std::endl;
 			return ;
 		}
 	}
-	std::cout << "[Character] [ " << name << " ] inventory is full"
-			  << std::cout;
+	std::cout << "[Character] [ "<< name <<" ] inventory is full"
+			  << std::endl;
 	if (sizeDropped == 0)
 	{
 		++sizeDropped;
@@ -125,7 +151,7 @@ void Character::equip(AMateria* m)
 
 void Character::unequip(int idx)
 {
-	if (idx > numMaterias || idx < 0 || !inventory[idx])
+	if (idx > 3 || idx < 0 || !inventory[idx])
 		return ;
 	numMaterias--;
 	
@@ -147,14 +173,19 @@ void Character::unequip(int idx)
 	}
 	std::cout << "Inventory " << inventory[idx]->getType() << " unequiped"
 			  << std::endl;
+	std::cout << "[Character] ["
+			  << name
+			  << "] Number of equiped materias: " 
+			  << numMaterias 
+			  << std::endl;
 	inventory[idx] = 0;
 }
 
 void Character::use(int idx, ICharacter& target)
 {
-	if (idx < 0 || idx > numMaterias)
+	if (idx < 0 || idx > 3)
 	{
-		std::cout << "Inventory does not exists";
+		std::cout << "Inventory does not exists" << std::endl;
 		return;
 	}
 	if (inventory[idx])

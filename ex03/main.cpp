@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main0.cpp                                          :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rlobun <rlobun@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/10 15:58:46 by rlobun            #+#    #+#             */
-/*   Updated: 2026/07/11 15:59:16 by rlobun           ###   ########.fr       */
+/*   Updated: 2026/07/13 00:53:06 by rlobun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,15 +76,18 @@ int main()
 
     delete floor;
 
-    std::cout << "\n========== DEEP COPY ==========\n";
+    std::cout << "\n========== DEEP COPY ==========\n\n";
 
     Character original("Alice");
+    original.toString();
 
-    original.equip(src->createMateria("ice"));
+    //original.equip(src->createMateria("ice"));
+    original.equip(src->createMateria("cure"));
     original.equip(src->createMateria("cure"));
 
     Character copy(original);
-
+    std::cout << "copy of Alice toString():\n";
+    copy.toString();
     std::cout << "Original:\n";
     original.use(0, original);
     original.use(1, original);
@@ -103,16 +106,18 @@ int main()
     std::cout << "Copy:\n";
     copy.use(0, copy);              // Still works
 
-    std::cout << "\n========== ASSIGNMENT OPERATOR ==========\n";
+    std::cout << "\n========== ASSIGNMENT OPERATOR ==========\n" << std::endl;
 
     Character other("Other");
+    other.toString();
+    copy.toString();
 
     other = copy;
 
     other.use(0, other);
     other.use(1, other);
 
-    std::cout << "\n========== CLEANUP ==========\n";
+    std::cout << "\n========== CLEANUP ==========\n" << std::endl;
 
     delete bob;
     delete me;
